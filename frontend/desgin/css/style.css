@@ -443,7 +443,28 @@ section{
 
 
 
+/* gallery section */
 
+.gallery img{
+   height: 40rem;
+   width: 60rem;
+   border-radius: .5rem;
+   object-fit: cover;
+   margin-bottom: 4rem;
+   user-select: none;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal{
+   bottom: 0;
+}
+
+.swiper-pagination-bullet{
+   background-color: var(--sub-color);
+}
+
+.swiper-pagination-bullet-active{
+   background-color: var(--white);
+}
 
 
 
