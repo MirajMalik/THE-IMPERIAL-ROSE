@@ -2,7 +2,8 @@
 
 :root{
    /* --main-color:#2B1103; */
-   --main-color:#381c2e;
+   /* --main-color:#381c2e; */
+   --main-color:#170424fb;
    --sub-color:#DCC69C;
    --white:#fff;
    --border:.1rem solid rgba(220, 198, 156, .3);
@@ -41,7 +42,7 @@
 
 
 html{
-   font-size: 62.5%;
+   font-size: 72.5%;
    overflow-x: hidden;
    scroll-behavior: smooth;
    scroll-padding-top: 2rem;
@@ -53,7 +54,7 @@ body{
 
 section{
    padding: 3rem 2rem;
-   max-width: 1200px;
+   max-width: 1900px;
    margin: 0 auto;
 }
 
@@ -182,15 +183,23 @@ section{
 
 
 /* availability secton */
+.availability {
+   background: #170424;
+   padding: 4rem 2rem;
+   border-radius: 1rem;
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+   margin: 2rem auto;
+   max-width: 1900px;
+}
 
 .availability form .flex{
    display: flex;
    flex-wrap: wrap;
-   gap: 1.5rem;
+   gap: 2rem;
 }
 
 .availability form .flex .box{
-   flex: 1 1 20rem;
+   flex: 1 1 22rem;
 }
 
 .availability form .flex .box p{
@@ -237,6 +246,52 @@ section{
 
 .availability form .flex .box input[type="date"]::-webkit-calendar-picker-indicator{
    filter: invert(1);
+}
+
+
+
+/* about section */
+
+.about .row{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1.5rem;
+   text-align: center;
+   align-items: center;
+}
+
+.about .row .image{
+   flex: 1 1 40rem;
+}
+
+.about .row .image img{
+   width: 45rem;
+   border-radius: .5rem;
+}
+
+.about .row .content{
+   flex:1 1 40rem;
+   margin-bottom: 2rem;
+}
+
+.about .row .content h3{
+   font-size: 3rem;
+   color: var(--sub-color);
+   text-transform: capitalize;
+   margin-bottom: 1rem;
+}
+
+.about .row .content p{
+   line-height: 2;
+   padding: 1rem 0;
+   font-size: 1.7rem;
+   color: var(--sub-color);
+}
+
+.about .row.revers{
+   flex-flow: row-reverse;
+   margin: 3rem 0;
+   flex-wrap: wrap;
 }
 
 
