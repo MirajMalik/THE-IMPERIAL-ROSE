@@ -1,55 +1,77 @@
-let navbar = document.querySelector('.header .navbar');
+// Navbar toggle
+var menuBtn = document.getElementById('menu-btn');
+var navbar = document.querySelector('.header .navbar');
 
-document.querySelector('#menu-btn').onclick = () =>{
-   navbar.classList.toggle('active');
+menuBtn.onclick = function() {
+   if (navbar.className.indexOf('active') === -1) {
+      navbar.className += ' active';
+   } else {
+      navbar.className = navbar.className.replace(' active', '');
+   }
+};
+
+
+
+
+// gallery slider
+
+var galleryIndex = 0;
+var gallerySlide = document.querySelector('.gallery-slide');
+var galleryImages = gallerySlide.querySelectorAll('img');
+
+function showGallerySlide(index) {
+
+   if(index >= galleryImages.length) 
+      { 
+         galleryIndex = 0; 
+      }
+   if(index < 0) 
+      { 
+         galleryIndex = galleryImages.length -1; 
+      }
+
+   gallerySlide.style.transform = 'translateX(' + (-galleryIndex * 100) + '%)';
 }
 
-window.onscroll = () =>{
-   navbar.classList.remove('active');
+document.querySelector('.gallery-container .next').onclick = function() {
+   galleryIndex++;
+   showGallerySlide(galleryIndex);
+};
+document.querySelector('.gallery-container .prev').onclick = function() {
+   galleryIndex--;
+   showGallerySlide(galleryIndex);
+};
+
+// reviews slider
+
+var reviewIndex = 0;
+var reviewsSlide = document.querySelector('.reviews-slide');
+var reviewBoxes = reviewsSlide.querySelectorAll('.box');
+
+function showReviewSlide(index) {
+
+   if(index >= reviewBoxes.length) 
+      { 
+         reviewIndex = 0; 
+      }
+
+   if(index < 0) { 
+      reviewIndex = reviewBoxes.length -1; 
+   }
+
+   reviewsSlide.style.transform = 'translateX(' + (-reviewIndex * 100) + '%)';
 }
 
-var swiper = new Swiper(".home-slider", {
-   loop:true,
-   effect: "coverflow",
-   spaceBetween: 30,
-   grabCursor: true,
-   autoplay: {
-   delay: 3000, 
-   disableOnInteraction: false,
-   },
-   coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: false,
-   },
-   navigation: {
-     nextEl: ".swiper-button-next",
-     prevEl: ".swiper-button-prev",
-   },
-   pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-   },
-});
+
+document.querySelector('.reviews-container .next-review').onclick = function() {
+   reviewIndex++;
+   showReviewSlide(reviewIndex);
+};
+
+document.querySelector('.reviews-container .prev-review').onclick = function() {
+   reviewIndex--;
+   showReviewSlide(reviewIndex);
+};
 
 
-var swiper = new Swiper(".gallery-slider", {
-   loop:true,
-   effect: "coverflow",
-   slidesPerView: "auto",
-   centeredSlides: true,
-   grabCursor: true,
-   coverflowEffect: {
-   rotate: 0,
-   stretch: 0,
-   depth: 100,
-   modifier: 2,
-   slideShadows: true,
-   },
-   pagination: {
-      el: ".swiper-pagination",
-      clickable:true,
-    },
-});
+
